@@ -1,9 +1,11 @@
 import React from 'react';
-import './App.css';
-
+import Layout from './layout/index'
 function App() {
   return (
-    <div>dasdasd</div>
+    <div>
+      <Layout></Layout>
+       {/* {this.props.children} */}
+    </div>
   );
 }
 
