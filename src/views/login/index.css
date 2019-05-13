@@ -1,0 +1,20 @@
+.login-box {
+  overflow: hidden;
+  width: 24vw;
+  margin: 200px auto 0;
+}
+
+.login-form {
+  width: 100%;
+}
+.login-remember span.ant-form-item-children {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 24px;
+  font-weight: bold;
+}
