@@ -1,15 +1,7 @@
-import React from 'react';
-import Layout from './layout/index'
+import React from 'react'
 
-import Login from './views/login/index.jsx'
 function App() {
-  return (
-    <div>
-      {/* <Layout></Layout> */}
-      <Login></Login>
-       {/* {this.props.children} */}
-    </div>
-  );
+  return <div>{this.props.children}</div>
 }
 
-export default App;
+export default App

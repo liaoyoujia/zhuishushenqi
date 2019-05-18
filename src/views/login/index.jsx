@@ -8,6 +8,7 @@ class LoginForm extends React.Component {
     e.preventDefault()
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        this.props.history.push('/')
       } else {
         let errArr = Object.keys(err)
         return errArr.forEach(item => {
