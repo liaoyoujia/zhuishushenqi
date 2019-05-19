@@ -2,17 +2,30 @@ import React from 'react'
 import { Form, Icon, Input, Button, Checkbox, Row, Col, message } from 'antd'
 import './index.css'
 import errObj from '../../config/errArr'
-
+import { login } from '../../http/api/user'
+import Storage from '../../config/storage'
+const storage = new Storage()
 class LoginForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        this.props.history.push('/')
+        console.log(values, 1231313)
+        const { username, password } = values
+        login({ username, password }).then(res => {
+          if (res.data.status === 0) {
+            message.success('登录成功！')
+            storage.setStorage('user', res.data.data)
+            this.props.history.push('/home')
+          } else {
+            message.error('登录失败！')
+            return false
+          }
+        })
       } else {
         let errArr = Object.keys(err)
         return errArr.forEach(item => {
-          item === 'userName' && message.error(`请输入${errObj[item]}`)
+          item === 'username' && message.error(`请输入${errObj[item]}`)
           item === 'password' && message.error(`请输入${errObj[item]}`)
         })
       }
@@ -28,7 +41,7 @@ class LoginForm extends React.Component {
           <Col xs={20} md={12} lg={6}>
             <Form onSubmit={this.handleSubmit} className="login-form">
               <Form.Item>
-                {getFieldDecorator('userName', {
+                {getFieldDecorator('username', {
                   rules: [
                     {
                       required: true,
