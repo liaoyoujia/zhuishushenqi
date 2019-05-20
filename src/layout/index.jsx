@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'antd'
-import Nav from '../components/nav/index.jsx'
+import Nav from '../components/nav/index'
 import Welcome from '../components/welcome/index.jsx'
 export default class Layout extends Component {
   render() {
