@@ -10,7 +10,6 @@ class LoginForm extends React.Component {
     e.preventDefault()
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log(values, 1231313)
         const { username, password } = values
         login({ username, password }).then(res => {
           if (res.data.status === 0) {

@@ -12,24 +12,7 @@ export default class index extends Component {
     let { blocks } = this.state
     return (
       <div className="home">
-        <Nublock
-          Number={blocks.productCount}
-          icon="shop"
-          catory="商品总数"
-          cls="brown"
-        />
-        <Nublock
-          Number={blocks.orderCount}
-          icon="ordered-list"
-          catory="订单总数"
-          cls="green"
-        />
-        <Nublock
-          Number={blocks.userCount}
-          icon="user"
-          catory="用户总数"
-          cls="blue"
-        />
+        
       </div>
     )
   }

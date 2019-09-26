@@ -9,7 +9,7 @@ export default class router extends Component {
     return (
       <HashRouter>
         <Switch>
-          <Route path="/login" component={Login} exact />
+          <Route path="/index" component={Home} exact />
           <Route
             path="/"
             render={() => {
