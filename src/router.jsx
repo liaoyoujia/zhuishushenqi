@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Layout from './layout/index.jsx'
-import Login from './views/login/index.jsx'
 import Home from './views/home/index.jsx'
 import Product from './views/poroduct/index.jsx'
 export default class router extends Component {
