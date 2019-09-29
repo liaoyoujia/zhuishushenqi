@@ -1,8 +1,12 @@
-import http from '../index'
+import http from '../config'
 
-export const home = () => {
+const home = () => {
   return http({
     url: '/manage/statistic/base_count.do',
     method: 'get'
   })
+}
+
+export default {
+  home
 }

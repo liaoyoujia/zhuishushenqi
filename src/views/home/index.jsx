@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Icon } from 'antd'
-import { home } from '../../http/api/home'
 import './index.css'
 export default class index extends Component {
   constructor(props) {
@@ -10,14 +9,6 @@ export default class index extends Component {
   render() {
     return <div className="home">测试</div>
   }
-  getBlockData = () => {
-    home().then(res => {
-      if (res.data.data) {
-        this.setState({ blocks: res.data.data })
-      }
-    })
-  }
-  componentDidMount() {
-    this.getBlockData()
-  }
+
+  componentDidMount() {}
 }

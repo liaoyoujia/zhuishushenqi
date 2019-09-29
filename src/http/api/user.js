@@ -1,6 +1,6 @@
-import http from '../index'
+import http from '../config'
 
-export const login = data => {
+const login = data => {
   const { username, password } = data
   return http({
     url: '/manage/user/login.do',
@@ -11,20 +11,6 @@ export const login = data => {
     }
   })
 }
-
-export const logout = () => {
-  return http({
-    url: '/user/logout.do',
-    method: 'POST'
-  })
-}
-
-export const fetchList = pageNum => {
-  return http({
-    url: '/manage/user/list.do',
-    method: 'POST',
-    data: {
-      pageNum
-    }
-  })
+export default {
+  login
 }

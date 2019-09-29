@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Row, Col, Select, Form, Input, Button, Table } from 'antd'
-import { fetchProduct } from '../../http/api/product'
 import './index.css'
 const FormItem = Form.Item
 const Option = Select.Option
@@ -70,22 +69,6 @@ class index extends Component {
         <RenderTable />
       </div>
     )
-  }
-  componentDidMount() {
-    this.getProduct(this.state.pageNum)
-  }
-  getProduct = num => {
-    fetchProduct(num).then(res => {
-      if (res.data.data.list) {
-        let tabData = res.data.data.list
-        console.log(tabData, 1231)
-
-        // tabData.filter(item => {
-        // return
-        // })
-        this.setState({ tableData: res.data.data.list })
-      }
-    })
   }
 }
 const RenderTable = () => {

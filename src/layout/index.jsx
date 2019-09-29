@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import './index.css'
 import logo from '../assert/imgs/logo.png'
 import lj1 from '../assert/imgs/lianjie1.png'
