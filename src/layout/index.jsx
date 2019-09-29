@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NavLink, withRouter } from 'react-router-dom'
 import './index.css'
 import logo from '../assert/imgs/logo.png'
 import lj1 from '../assert/imgs/lianjie1.png'
@@ -9,7 +10,7 @@ import lj5 from '../assert/imgs/lianjie5.png'
 import { Row, Col, Input, Tabs } from 'antd'
 const { Search } = Input
 const { TabPane } = Tabs
-export default class Layout extends Component {
+class Layout extends Component {
   render() {
     return (
       <div className="main">
@@ -21,7 +22,10 @@ export default class Layout extends Component {
         </Row>
         <Row className="header-tab">
           <Col span={16} offset={4}>
-            <Tab></Tab>
+            <Tab
+              children={this.props.children}
+              history={this.props.history}
+            ></Tab>
           </Col>
         </Row>
         <Row>
@@ -61,34 +65,43 @@ const Header = function() {
   )
 }
 
-const Tab = function() {
+const Tab = function(props) {
+  const toggleTab = e => {
+    // eslint-disable-next-line default-case
+    switch (e) {
+      case 'index':
+        props.history.push('/home')
+        break
+      case 'select':
+        props.history.push('/select')
+        break
+      case 'category':
+        props.history.push('/category')
+        break
+      case 'rank':
+        props.history.push('/rank')
+        break
+      case 'customer':
+        props.history.push('/customer')
+    }
+  }
   return (
     <div style={{ width: '100%' }}>
-      <Tabs type="card">
-        <TabPane tab="首页" key="1">
-          <p>Content of Tab Pane 1</p>
-          <p>Content of Tab Pane 1</p>
-          <p>Content of Tab Pane 1</p>
+      <Tabs type="card" onTabClick={toggleTab}>
+        <TabPane tab="首页" key="index">
+          {props.children}
         </TabPane>
-        <TabPane tab="精选" key="2">
-          <p>Content of Tab Pane 2</p>
-          <p>Content of Tab Pane 2</p>
-          <p>Content of Tab Pane 2</p>
+        <TabPane tab="精选" key="select">
+          {props.children}
         </TabPane>
-        <TabPane tab="分类" key="3">
-          <p>Content of Tab Pane 3</p>
-          <p>Content of Tab Pane 3</p>
-          <p>Content of Tab Pane 3</p>
+        <TabPane tab="分类" key="category">
+          {props.children}
         </TabPane>
-        <TabPane tab="排行榜" key="4">
-          <p>Content of Tab Pane 3</p>
-          <p>Content of Tab Pane 3</p>
-          <p>Content of Tab Pane 3</p>
+        <TabPane tab="排行榜" key="rank">
+          {props.children}
         </TabPane>
-        <TabPane tab="客户端" key="5">
-          <p>Content of Tab Pane 3</p>
-          <p>Content of Tab Pane 3</p>
-          <p>Content of Tab Pane 3</p>
+        <TabPane tab="客户端" key="customer">
+          {props.children}
         </TabPane>
       </Tabs>
     </div>
@@ -119,3 +132,5 @@ const Footer = function() {
     </div>
   )
 }
+
+export default withRouter(Layout)
